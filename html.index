@@ -8,14 +8,8 @@
 <body>
     <h1>Galería de Imágenes</h1>
     <div>
-        <?php
-        $dir = "imagenes/";
-        $images = glob($dir . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
-        foreach($images as $image) {
-            echo "<img src='$image' style='width:200px; margin:10px;'/>";
-        }
-        ?>
+        <img src="imagenes/mi_imagen.jpg" alt="Descripción de la imagen" style="width:200px; margin:10px;"/>
+        <!-- Agrega más imágenes según sea necesario -->
     </div>
 </body>
 </html>
-
