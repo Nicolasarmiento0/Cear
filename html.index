@@ -1,1 +1,21 @@
-*
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+</head>
+<body>
+    <h1>Galería de Imágenes</h1>
+    <div>
+        <?php
+        $dir = "imagenes/";
+        $images = glob($dir . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+        foreach($images as $image) {
+            echo "<img src='$image' style='width:200px; margin:10px;'/>";
+        }
+        ?>
+    </div>
+</body>
+</html>
+
