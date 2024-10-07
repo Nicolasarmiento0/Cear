@@ -3,56 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emociones del Chatbot</title>
+    <title>Rostro del Robot</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            color: #333;
-        }
-        .emotion-container {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        .robot-container {
+            text-align: center;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .robot-face {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #222;
+            border-radius: 50%;
+            margin: 0 auto;
+            border: 10px solid #666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
         .emotion {
-            margin: 20px;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            background-color: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .emotion img {
+            position: absolute;
             width: 150px;
             height: 150px;
-            object-fit: cover;
             border-radius: 50%;
         }
-        .emotion p {
-            margin-top: 10px;
+        .emotion img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        h1 {
+            font-size: 1.5em;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        .emotion-selector {
+            margin-top: 20px;
+        }
+        .emotion-selector button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background-color: #555;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
             font-weight: bold;
+        }
+        .emotion-selector button:hover {
+            background-color: #888;
         }
     </style>
 </head>
 <body>
-    <h1>Emociones del Chatbot</h1>
-    <div class="emotion-container">
-        <div class="emotion">
-            <img src="emociones/feliz.gif" alt="Feliz">
-            <p>Feliz</p>
+
+    <div class="robot-container">
+        <h1>Rostro del Robot</h1>
+        <div class="robot-face" id="robot-face">
+            <!-- Aquí se mostrarán las emociones como GIF -->
+            <div class="emotion" id="emotion">
+                <img src="emociones/neutro.gif" alt="Emoción actual">
+            </div>
         </div>
-        <div class="emotion">
-            <img src="emociones/triste.gif" alt="Triste">
-            <p>Triste</p>
-        </div>
-        <div class="emotion">
-            <img src="emociones/enojado.gif" alt="Enojado">
-            <p>Enojado</p>
+        
+        <!-- Botones para cambiar la emoción -->
+        <div class="emotion-selector">
+            <button onclick="setEmotion('feliz')">Feliz</button>
+            <button onclick="setEmotion('triste')">Triste</button>
+            <button onclick="setEmotion('enojado')">Enojado</button>
+            <button onclick="setEmotion('sorprendido')">Sorprendido</button>
+            <button onclick="setEmotion('neutro')">Neutro</button>
         </div>
     </div>
+
+    <script>
+        function setEmotion(emotion) {
+            const emotionImg = document.getElementById('emotion').querySelector('img');
+            emotionImg.src = `emociones/${emotion}.gif`;
+            emotionImg.alt = `${emotion.charAt(0).toUpperCase() + emotion.slice(1)}`;
+        }
+    </script>
+    
 </body>
 </html>
